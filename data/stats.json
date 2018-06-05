@@ -1,0 +1,303 @@
+[{ "date": "12/08/2017", "team": "liverpool", "opponent": "watford", "home": "false", "scored": "3", "conceded": "3", "points": "1" },
+
+{ "date": "12/08/2017", "team": "man city", "opponent": "brighton", "home": "false", "scored": "2", "conceded": "0", "points": "3" },
+
+{ "date": "13/08/2017", "team": "man utd", "opponent": "west ham", "home": "true", "scored": "4", "conceded": "0", "points": "3" },
+
+{ "date": "13/08/2017", "team": "spurs", "opponent": "newcastle", "home": "false", "scored": "2", "conceded": "0", "points": "3" },
+
+{ "date": "19/08/2017", "team": "liverpool", "opponent": "crystal palace", "home": "true", "scored": "1", "conceded": "0", "points": "3" },
+
+{ "date": "19/08/2017", "team": "man utd", "opponent": "swansea", "home": "false", "scored": "4", "conceded": "0", "points": "3" },
+
+{ "date": "20/08/2017", "team": "spurs", "opponent": "chelsea", "home": "true", "scored": "1", "conceded": "2", "points": "0" },
+
+{ "date": "21/08/2017", "team": "man city", "opponent": "everton", "home": "true", "scored": "1", "conceded": "1", "points": "1" },
+
+{ "date": "26/08/2017", "team": "man utd", "opponent": "leicester", "home": "true", "scored": "2", "conceded": "0", "points": "3" },
+
+{ "date": "26/08/2017", "team": "man city", "opponent": "bournemouth", "home": "false", "scored": "2", "conceded": "1", "points": "3" },
+
+{ "date": "27/08/2017", "team": "liverpool", "opponent": "arsenal", "home": "true", "scored": "4", "conceded": "0", "points": "3" },
+
+{ "date": "27/08/2017", "team": "spurs", "opponent": "stoke", "home": "true", "scored": "1", "conceded": "1", "points": "1" },
+
+{ "date": "09/09/2017", "team": "man utd", "opponent": "stoke", "home": "false", "scored": "2", "conceded": "2", "points": "1" },
+
+{ "date": "09/09/2017", "team": "spurs", "opponent": "everton", "home": "false", "scored": "3", "conceded": "0", "points": "3" },
+
+{ "date": "09/09/2017", "team": "man city", "opponent": "liverpool", "home": "true", "scored": "5", "conceded": "0", "points": "3" },
+
+{ "date": "09/09/2017", "team": "liverpool", "opponent": "man city", "home": "false", "scored": "0", "conceded": "5", "points": "0" },
+
+{ "date": "16/09/2017", "team": "spurs", "opponent": "swansea", "home": "true", "scored": "0", "conceded": "0", "points": "1" },
+
+{ "date": "16/09/2017", "team": "liverpool", "opponent": "burnley", "home": "true", "scored": "1", "conceded": "1", "points": "1" },
+
+{ "date": "16/09/2017", "team": "man city", "opponent": "watford", "home": "false", "scored": "6", "conceded": "0", "points": "3" },
+
+{ "date": "17/09/2017", "team": "man utd", "opponent": "everton", "home": "true", "scored": "4", "conceded": "0", "points": "3" },
+
+{ "date": "23/09/2017", "team": "liverpool", "opponent": "leicester", "home": "false", "scored": "3", "conceded": "2", "points": "3" },
+
+{ "date": "23/09/2017", "team": "man city", "opponent": "crystal palace", "home": "true", "scored": "5", "conceded": "0", "points": "3" },
+
+{ "date": "23/09/2017", "team": "man utd", "opponent": "southampton", "home": "false", "scored": "1", "conceded": "0", "points": "3" },
+
+{ "date": "23/09/2017", "team": "spurs", "opponent": "west ham", "home": "false", "scored": "3", "conceded": "2", "points": "3" },
+
+{ "date": "30/09/2017", "team": "man city", "opponent": "chelsea", "home": "false", "scored": "1", "conceded": "0", "points": "3" },
+
+{ "date": "30/09/2017", "team": "man utd", "opponent": "crystal palace", "home": "true", "scored": "4", "conceded": "0", "points": "3" },
+
+{ "date": "30/09/2017", "team": "spurs", "opponent": "huddersfield", "home": "false", "scored": "4", "conceded": "0", "points": "3" },
+
+{ "date": "01/10/2017", "team": "liverpool", "opponent": "newcastle", "home": "false", "scored": "1", "conceded": "1", "points": "1" },
+
+{ "date": "14/10/2017", "team": "man city", "opponent": "stoke", "home": "true", "scored": "7", "conceded": "2", "points": "3" },
+
+{ "date": "14/10/2017", "team": "spurs", "opponent": "bournemouth", "home": "true", "scored": "1", "conceded": "0", "points": "3" },
+
+{ "date": "14/10/2017", "team": "liverpool", "opponent": "man utd", "home": "true", "scored": "0", "conceded": "0", "points": "1" },
+
+{ "date": "14/10/2017", "team": "man utd", "opponent": "liverpool", "home": "false", "scored": "0", "conceded": "0", "points": "1" },
+
+{ "date": "21/10/2017", "team": "man utd", "opponent": "huddersfield", "home": "false", "scored": "1", "conceded": "2", "points": "0" },
+
+{ "date": "21/10/2017", "team": "man city", "opponent": "burnley", "home": "true", "scored": "3", "conceded": "0", "points": "3" },
+
+{ "date": "22/10/2017", "team": "spurs", "opponent": "liverpool", "home": "true", "scored": "4", "conceded": "1", "points": "3" },
+
+{ "date": "22/10/2017", "team": "liverpool", "opponent": "spurs", "home": "false", "scored": "1", "conceded": "4", "points": "0" },
+
+{ "date": "28/10/2017", "team": "liverpool", "opponent": "huddersfield", "home": "true", "scored": "3", "conceded": "0", "points": "3" },
+
+{ "date": "28/10/2017", "team": "man city", "opponent": "west brom", "home": "false", "scored": "3", "conceded": "2", "points": "3" },
+
+{ "date": "28/10/2017", "team": "man utd", "opponent": "spurs", "home": "true", "scored": "1", "conceded": "0", "points": "3" },
+
+{ "date": "28/10/2017", "team": "spurs", "opponent": "man utd", "home": "false", "scored": "0", "conceded": "1", "points": "0" },
+
+{ "date": "04/11/2017", "team": "liverpool", "opponent": "west ham", "home": "false", "scored": "4", "conceded": "1", "points": "3" },
+
+{ "date": "05/11/2017", "team": "man utd", "opponent": "chelsea", "home": "false", "scored": "0", "conceded": "1", "points": "0" },
+
+{ "date": "05/11/2017", "team": "man city", "opponent": "arsenal", "home": "true", "scored": "3", "conceded": "1", "points": "3" },
+
+{ "date": "05/11/2017", "team": "spurs", "opponent": "crystal palace", "home": "true", "scored": "1", "conceded": "0", "points": "3" },
+
+{ "date": "18/11/2017", "team": "man utd", "opponent": "newcastle", "home": "true", "scored": "4", "conceded": "1", "points": "3" },
+
+{ "date": "18/11/2017", "team": "man city", "opponent": "leicester", "home": "false", "scored": "2", "conceded": "0", "points": "3" },
+
+{ "date": "18/11/2017", "team": "liverpool", "opponent": "southampton", "home": "true", "scored": "3", "conceded": "0", "points": "3" },
+
+{ "date": "18/11/2017", "team": "spurs", "opponent": "arsenal", "home": "false", "scored": "0", "conceded": "2", "points": "0" },
+
+{ "date": "25/11/2017", "team": "liverpool", "opponent": "chelsea", "home": "true", "scored": "1", "conceded": "1", "points": "1" },
+
+{ "date": "25/11/2017", "team": "man utd", "opponent": "brighton", "home": "true", "scored": "1", "conceded": "0", "points": "3" },
+
+{ "date": "25/11/2017", "team": "spurs", "opponent": "west brom", "home": "true", "scored": "1", "conceded": "1", "points": "1" },
+
+{ "date": "26/11/2017", "team": "man city", "opponent": "huddersfield", "home": "false", "scored": "2", "conceded": "1", "points": "3" },
+
+{ "date": "28/11/2017", "team": "man utd", "opponent": "watford", "home": "false", "scored": "4", "conceded": "2", "points": "3" },
+
+{ "date": "28/11/2017", "team": "spurs", "opponent": "leicester", "home": "false", "scored": "1", "conceded": "2", "points": "0" },
+
+{ "date": "29/11/2017", "team": "man city", "opponent": "southampton", "home": "true", "scored": "2", "conceded": "1", "points": "3" },
+
+{ "date": "29/11/2017", "team": "liverpool", "opponent": "stoke", "home": "false", "scored": "3", "conceded": "0", "points": "3" },
+
+{ "date": "02/12/2017", "team": "man utd", "opponent": "arsenal", "home": "false", "scored": "3", "conceded": "1", "points": "3" },
+
+{ "date": "02/12/2017", "team": "liverpool", "opponent": "brighton", "home": "false", "scored": "5", "conceded": "1", "points": "3" },
+
+{ "date": "02/12/2017", "team": "spurs", "opponent": "watford", "home": "false", "scored": "1", "conceded": "1", "points": "1" },
+
+{ "date": "03/12/2017", "team": "man city", "opponent": "west ham", "home": "true", "scored": "2", "conceded": "1", "points": "3" },
+
+{ "date": "09/12/2017", "team": "spurs", "opponent": "stoke", "home": "true", "scored": "5", "conceded": "1", "points": "3" },
+
+{ "date": "10/12/2017", "team": "man utd", "opponent": "man city", "home": "true", "scored": "1", "conceded": "2", "points": "0" },
+
+{ "date": "10/12/2017", "team": "man city", "opponent": "man utd", "home": "false", "scored": "2", "conceded": "1", "points": "3" },
+
+{ "date": "10/12/2017", "team": "liverpool", "opponent": "everton", "home": "true", "scored": "1", "conceded": "1", "points": "1" },
+
+{ "date": "13/12/2017", "team": "liverpool", "opponent": "west brom", "home": "true", "scored": "0", "conceded": "0", "points": "1" },
+
+{ "date": "13/12/2017", "team": "man utd", "opponent": "bournemouth", "home": "true", "scored": "1", "conceded": "0", "points": "3" },
+
+{ "date": "13/12/2017", "team": "spurs", "opponent": "brighton", "home": "true", "scored": "2", "conceded": "0", "points": "3" },
+
+{ "date": "13/12/2017", "team": "man city", "opponent": "swansea", "home": "false", "scored": "4", "conceded": "0", "points": "3" },
+
+{ "date": "16/12/2017", "team": "man city", "opponent": "spurs", "home": "true", "scored": "4", "conceded": "1", "points": "3" },
+
+{ "date": "16/12/2017", "team": "spurs", "opponent": "man city", "home": "false", "scored": "1", "conceded": "4", "points": "0" },
+
+{ "date": "17/12/2017", "team": "man utd", "opponent": "west brom", "home": "false", "scored": "2", "conceded": "1", "points": "3" },
+
+{ "date": "17/12/2017", "team": "liverpool", "opponent": "bournemouth", "home": "false", "scored": "4", "conceded": "0", "points": "3" },
+
+{ "date": "22/12/2017", "team": "liverpool", "opponent": "arsenal", "home": "false", "scored": "3", "conceded": "3", "points": "1" },
+
+{ "date": "23/12/2017", "team": "man utd", "opponent": "leicester", "home": "false", "scored": "2", "conceded": "2", "points": "1" },
+
+{ "date": "23/12/2017", "team": "spurs", "opponent": "burnley", "home": "false", "scored": "3", "conceded": "0", "points": "3" },
+
+{ "date": "23/12/2017", "team": "man city", "opponent": "bournemouth", "home": "true", "scored": "4", "conceded": "0", "points": "3" },
+
+{ "date": "26/12/2017", "team": "liverpool", "opponent": "swansea", "home": "true", "scored": "5", "conceded": "0", "points": "3" },
+
+{ "date": "26/12/2017", "team": "man utd", "opponent": "burnley", "home": "true", "scored": "2", "conceded": "2", "points": "1" },
+
+{ "date": "26/12/2017", "team": "spurs", "opponent": "southampton", "home": "true", "scored": "5", "conceded": "2", "points": "3" },
+
+{ "date": "27/12/2017", "team": "man city", "opponent": "newcastle", "home": "false", "scored": "1", "conceded": "0", "points": "3" },
+
+{ "date": "30/12/2017", "team": "man utd", "opponent": "southampton", "home": "true", "scored": "0", "conceded": "0", "points": "1" },
+
+{ "date": "30/12/2017", "team": "liverpool", "opponent": "leicester", "home": "true", "scored": "2", "conceded": "1", "points": "3" },
+
+{ "date": "31/12/2017", "team": "man city", "opponent": "crystal palace", "home": "false", "scored": "0", "conceded": "0", "points": "1" },
+
+{ "date": "01/01/2018", "team": "man utd", "opponent": "everton", "home": "false", "scored": "2", "conceded": "0", "points": "3" },
+
+{ "date": "01/01/2018", "team": "liverpool", "opponent": "burnley", "home": "false", "scored": "2", "conceded": "1", "points": "3" },
+
+{ "date": "02/01/2018", "team": "man city", "opponent": "watford", "home": "true", "scored": "3", "conceded": "1", "points": "3" },
+
+{ "date": "02/01/2018", "team": "spurs", "opponent": "swansea", "home": "false", "scored": "2", "conceded": "0", "points": "3" },
+
+{ "date": "04/01/2018", "team": "spurs", "opponent": "west ham", "home": "true", "scored": "1", "conceded": "1", "points": "1" },
+
+{ "date": "13/01/2018", "team": "spurs", "opponent": "everton", "home": "true", "scored": "4", "conceded": "0", "points": "3" },
+
+{ "date": "14/01/2018", "team": "liverpool", "opponent": "man city", "home": "true", "scored": "4", "conceded": "3", "points": "3" },
+
+{ "date": "14/01/2018", "team": "man city", "opponent": "liverpool", "home": "false", "scored": "3", "conceded": "4", "points": "0" },
+
+{ "date": "15/01/2018", "team": "man utd", "opponent": "stoke", "home": "true", "scored": "3", "conceded": "0", "points": "3" },
+
+{ "date": "20/01/2018", "team": "man city", "opponent": "newcastle", "home": "true", "scored": "3", "conceded": "1", "points": "3" },
+
+{ "date": "20/01/2018", "team": "man utd", "opponent": "burnley", "home": "false", "scored": "1", "conceded": "0", "points": "3" },
+
+{ "date": "21/01/2018", "team": "spurs", "opponent": "southampton", "home": "false", "scored": "1", "conceded": "1", "points": "1" },
+
+{ "date": "22/01/2018", "team": "liverpool", "opponent": "swansea", "home": "false", "scored": "0", "conceded": "1", "points": "0" },
+
+{ "date": "30/01/2018", "team": "liverpool", "opponent": "huddersfield", "home": "false", "scored": "3", "conceded": "0", "points": "3" },
+
+{ "date": "31/01/2018", "team": "man city", "opponent": "west brom", "home": "true", "scored": "3", "conceded": "0", "points": "3" },
+
+{ "date": "31/01/2018", "team": "spurs", "opponent": "man utd", "home": "true", "scored": "2", "conceded": "0", "points": "3" },
+
+{ "date": "31/01/2018", "team": "man utd", "opponent": "spurs", "home": "false", "scored": "0", "conceded": "2", "points": "0" },
+
+{ "date": "03/02/2018", "team": "man utd", "opponent": "huddersfield", "home": "true", "scored": "2", "conceded": "0", "points": "3" },
+
+{ "date": "03/02/2018", "team": "man city", "opponent": "burnley", "home": "false", "scored": "1", "conceded": "1", "points": "1" },
+
+{ "date": "04/02/2018", "team": "liverpool", "opponent": "spurs", "home": "true", "scored": "2", "conceded": "2", "points": "1" },
+
+{ "date": "04/02/2018", "team": "spurs", "opponent": "liverpool", "home": "false", "scored": "2", "conceded": "2", "points": "1" },
+
+{ "date": "10/02/2018", "team": "man city", "opponent": "leicester", "home": "true", "scored": "5", "conceded": "1", "points": "3" },
+
+{ "date": "10/02/2018", "team": "spurs", "opponent": "arsenal", "home": "true", "scored": "1", "conceded": "0", "points": "3" },
+
+{ "date": "11/02/2018", "team": "liverpool", "opponent": "southampton", "home": "false", "scored": "2", "conceded": "0", "points": "3" },
+
+{ "date": "11/02/2018", "team": "man utd", "opponent": "newcastle", "home": "false", "scored": "0", "conceded": "1", "points": "0" },
+
+{ "date": "24/02/2018", "team": "liverpool", "opponent": "west ham", "home": "true", "scored": "4", "conceded": "1", "points": "3" },
+
+{ "date": "25/02/2018", "team": "man utd", "opponent": "chelsea", "home": "true", "scored": "2", "conceded": "1", "points": "3" },
+
+{ "date": "25/02/2018", "team": "spurs", "opponent": "crystal palace", "home": "false", "scored": "1", "conceded": "0", "points": "3" },
+
+{ "date": "01/03/2018", "team": "man city", "opponent": "arsenal", "home": "false", "scored": "3", "conceded": "0", "points": "3" },
+
+{ "date": "03/03/2018", "team": "liverpool", "opponent": "newcastle", "home": "true", "scored": "2", "conceded": "0", "points": "3" },
+
+{ "date": "03/03/2018", "team": "spurs", "opponent": "huddersfield", "home": "true", "scored": "2", "conceded": "0", "points": "3" },
+
+{ "date": "04/03/2018", "team": "man city", "opponent": "chelsea", "home": "true", "scored": "1", "conceded": "0", "points": "3" },
+
+{ "date": "05/03/2018", "team": "man utd", "opponent": "crystal palace", "home": "false", "scored": "3", "conceded": "2", "points": "3" },
+
+{ "date": "10/03/2018", "team": "man utd", "opponent": "liverpool", "home": "true", "scored": "2", "conceded": "1", "points": "3" },
+
+{ "date": "10/03/2018", "team": "liverpool", "opponent": "man utd", "home": "false", "scored": "1", "conceded": "2", "points": "0" },
+
+{ "date": "11/03/2018", "team": "spurs", "opponent": "bournemouth", "home": "false", "scored": "4", "conceded": "1", "points": "3" },
+
+{ "date": "12/03/2018", "team": "man city", "opponent": "stoke", "home": "false", "scored": "2", "conceded": "0", "points": "3" },
+
+{ "date": "17/03/2018", "team": "liverpool", "opponent": "watford", "home": "true", "scored": "5", "conceded": "0", "points": "3" },
+
+{ "date": "31/03/2018", "team": "man utd", "opponent": "swansea", "home": "true", "scored": "2", "conceded": "0", "points": "3" },
+
+{ "date": "31/03/2018", "team": "liverpool", "opponent": "crystal palace", "home": "false", "scored": "2", "conceded": "1", "points": "3" },
+
+{ "date": "31/03/2018", "team": "man city", "opponent": "everton", "home": "false", "scored": "3", "conceded": "1", "points": "3" },
+
+{ "date": "01/04/2018", "team": "spurs", "opponent": "chelsea", "home": "false", "scored": "3", "conceded": "1", "points": "3" },
+
+{ "date": "07/04/2018", "team": "man city", "opponent": "man utd", "home": "true", "scored": "2", "conceded": "3", "points": "0" },
+
+{ "date": "07/04/2018", "team": "man utd", "opponent": "man city", "home": "false", "scored": "3", "conceded": "2", "points": "3" },
+
+{ "date": "07/04/2018", "team": "spurs", "opponent": "stoke", "home": "false", "scored": "2", "conceded": "1", "points": "3" },
+
+{ "date": "07/04/2018", "team": "liverpool", "opponent": "everton", "home": "false", "scored": "0", "conceded": "0", "points": "1" },
+
+{ "date": "14/04/2018", "team": "spurs", "opponent": "man city", "home": "true", "scored": "1", "conceded": "3", "points": "0" },
+
+{ "date": "14/04/2018", "team": "man city", "opponent": "spurs", "home": "false", "scored": "3", "conceded": "1", "points": "3" },
+
+{ "date": "14/04/2018", "team": "liverpool", "opponent": "bournemouth", "home": "true", "scored": "3", "conceded": "0", "points": "3" },
+
+{ "date": "15/04/2018", "team": "man utd", "opponent": "west brom", "home": "true", "scored": "0", "conceded": "1", "points": "0" },
+
+{ "date": "17/04/2018", "team": "spurs", "opponent": "brighton", "home": "false", "scored": "1", "conceded": "1", "points": "1" },
+
+{ "date": "18/04/2018", "team": "man utd", "opponent": "bournemouth", "home": "false", "scored": "2", "conceded": "0", "points": "3" },
+
+{ "date": "21/04/2018", "team": "liverpool", "opponent": "west brom", "home": "false", "scored": "2", "conceded": "2", "points": "1" },
+
+{ "date": "22/04/2018", "team": "man city", "opponent": "swansea", "home": "true", "scored": "5", "conceded": "0", "points": "3" },
+
+{ "date": "28/04/2018", "team": "liverpool", "opponent": "stoke", "home": "true", "scored": "0", "conceded": "0", "points": "1" },
+
+{ "date": "29/04/2018", "team": "man utd", "opponent": "arsenal", "home": "true", "scored": "2", "conceded": "1", "points": "3" },
+
+{ "date": "29/04/2018", "team": "man city", "opponent": "west ham", "home": "false", "scored": "4", "conceded": "1", "points": "3" },
+
+{ "date": "30/04/2018", "team": "spurs", "opponent": "watford", "home": "true", "scored": "2", "conceded": "0", "points": "3" },
+
+{ "date": "04/05/2018", "team": "man utd", "opponent": "brighton", "home": "false", "scored": "0", "conceded": "1", "points": "0" },
+
+{ "date": "05/05/2018", "team": "spurs", "opponent": "west brom", "home": "false", "scored": "0", "conceded": "1", "points": "0" },
+
+{ "date": "06/05/2018", "team": "liverpool", "opponent": "chelsea", "home": "false", "scored": "0", "conceded": "1", "points": "0" },
+
+{ "date": "06/05/2018", "team": "man city", "opponent": "huddersfield", "home": "true", "scored": "0", "conceded": "0", "points": "1" },
+
+{ "date": "09/05/2018", "team": "man city", "opponent": "brighton", "home": "true", "scored": "3", "conceded": "1", "points": "3" },
+
+{ "date": "09/05/2018", "team": "spurs", "opponent": "newcastle", "home": "true", "scored": "1", "conceded": "0", "points": "3" },
+
+{ "date": "10/05/2018", "team": "man utd", "opponent": "west ham", "home": "false", "scored": "0", "conceded": "0", "points": "1" },
+
+{ "date": "13/05/2018", "team": "liverpool", "opponent": "brighton", "home": "true", "scored": "4", "conceded": "0", "points": "3" },
+
+{ "date": "13/05/2018", "team": "man utd", "opponent": "watford", "home": "true", "scored": "1", "conceded": "0", "points": "3" },
+
+{ "date": "13/05/2018", "team": "man city", "opponent": "southampton", "home": "false", "scored": "1", "conceded": "0", "points": "3" },
+
+{ "date": "13/05/2018", "team": "spurs", "opponent": "leicester", "home": "true", "scored": "5", "conceded": "4", "points": "3" }]
