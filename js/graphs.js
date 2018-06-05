@@ -109,6 +109,7 @@ function makeGraphs(error, stats){
     .dimension(concededHomeAway_dimension)
     .group(concededHomeAway_group );
     
+    
     //line graph
     var parseDate = d3.time.format("%d/%m/%Y").parse;
     stats.forEach( function(d){
@@ -133,7 +134,93 @@ function makeGraphs(error, stats){
     .xAxisLabel("Month")
     .yAxis().ticks(20);
     
+    //stacked charts
     
+    // points home and away
+    
+    var group_pointsByTeamAtHome = team_dim.group().reduceSum(function(d){
+      if(d.home=="true"){
+       return +d.points;
+      }
+      else{
+        return 0;
+      }
+    });
+    var group_pointsByTeamAway = team_dim.group().reduceSum(function(d){
+      if(d.home=="false"){
+       return +d.points;
+      }
+      else{
+        return 0;
+      }
+    });
+    var stackedPointsChart = dc.barChart("#points_stackedChart");
+    stackedPointsChart
+    .width(300) .height(200)
+    .dimension(team_dim)
+    .group(group_pointsByTeamAtHome, "Home")
+    .stack(group_pointsByTeamAway, "Away")
+    .x(d3.scale.ordinal())
+    .xUnits( dc.units.ordinal)
+    .legend( dc.legend().x(420).y(0).itemHeight(15).gap(5))
+    .margins( {top: 10, right: 50, bottom: 30 , left: 50});
+    
+    
+    // scored home and away
+    var group_scoredByTeamAtHome = team_dim.group().reduceSum(function(d){
+      if(d.home=="true"){
+       return +d.scored;
+      }
+      else{
+        return 0;
+      }
+    });
+    var group_scoredByTeamAway = team_dim.group().reduceSum(function(d){
+      if(d.home=="false"){
+       return +d.scored;
+      }
+      else{
+        return 0;
+      }
+    });
+    var stackedScoredChart = dc.barChart("#scored_stackedChart");
+    stackedScoredChart
+    .width(300) .height(200)
+    .dimension(team_dim)
+    .group(group_scoredByTeamAtHome, "scored home")
+    .stack(group_scoredByTeamAway, "scored away")
+    .x(d3.scale.ordinal())
+    .xUnits( dc.units.ordinal)
+    .legend( dc.legend().x(420).y(0).itemHeight(15).gap(5))
+    .margins( {top: 10, right: 50, bottom: 30 , left: 50});
+    
+     // conceded home and away
+    var group_concededByTeamAtHome = team_dim.group().reduceSum(function(d){
+      if(d.home=="true"){
+       return +d.conceded;
+      }
+      else{
+        return 0;
+      }
+    });
+    var group_concededByTeamAway = team_dim.group().reduceSum(function(d){
+      if(d.home=="false"){
+       return +d.conceded;
+      }
+      else{
+        return 0;
+      }
+    });
+    var concededScoredChart = dc.barChart("#conceded_stackedChart");
+    concededScoredChart
+    .width(300) .height(200)
+    .dimension(team_dim)
+    .group(group_concededByTeamAtHome, "conceded home")
+    .stack(group_concededByTeamAway, "conceded away")
+    .x(d3.scale.ordinal())
+    .xUnits( dc.units.ordinal)
+    .legend( dc.legend().x(420).y(0).itemHeight(15).gap(5))
+    .margins( {top: 10, right: 50, bottom: 30 , left: 50});
     
     
     dc.renderAll(); 
