@@ -71,9 +71,43 @@ function makeGraphs(error, stats){
     .group(wonLostDrew_group);
     
     
+    var scoredHomeAway_dimension = ndx.dimension( function(d){
+     //"home": "false"
+     if( d.home=="true") //d.scored > d.conceded
+     {
+      return "Home";
+     }
+     else{
+      return "Away";
+     }
+     
+    });
+    var scoredHomeAway_group = scoredHomeAway_dimension.group().reduceSum(dc.pluck('scored'));
     
+
     
+    dc.pieChart("#scoredHomeAway_piechart" )
+    .height(330).radius(90)
+    .dimension(scoredHomeAway_dimension)
+    .group(scoredHomeAway_group);
     
+     var concededHomeAway_dimension = ndx.dimension( function(d){
+     //"home": "false"
+     if( d.home=="true") //d.scored > d.conceded
+     {
+      return "Home";
+     }
+     else{
+      return "Away";
+     }
+     
+    });
+    var concededHomeAway_group = scoredHomeAway_dimension.group().reduceSum(dc.pluck('conceded'));
+    
+    dc.pieChart("#concededHomeAway_piechart" )
+    .height(330).radius(90)
+    .dimension(concededHomeAway_dimension)
+    .group(concededHomeAway_group );
     
     dc.renderAll(); 
     
