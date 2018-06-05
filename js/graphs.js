@@ -109,6 +109,33 @@ function makeGraphs(error, stats){
     .dimension(concededHomeAway_dimension)
     .group(concededHomeAway_group );
     
+    //line graph
+    var parseDate = d3.time.format("%d/%m/%Y").parse;
+    stats.forEach( function(d){
+       d.date = parseDate( d.date);
+    });
+    var date_dim = ndx.dimension(dc.pluck('date'));
+    
+    var minDate = date_dim.bottom(1)[0].date;
+    var maxDate = date_dim.top(1)[0].date;
+    
+    var points_per_month = date_dim.group().reduceSum(dc.pluck('points'));
+    
+    
+    //console.log(points_per_month.all());
+    
+    dc.lineChart("#points_linechart")
+    .width(1000) .height(400)
+    .margins( {top: 10, right: 50, bottom: 30 , left: 50})
+    .dimension(date_dim) .group(points_per_month)
+    .transitionDuration(500)
+    .x(d3.time.scale().domain([minDate,maxDate]))
+    .xAxisLabel("Month")
+    .yAxis().ticks(20);
+    
+    
+    
+    
     dc.renderAll(); 
     
     
