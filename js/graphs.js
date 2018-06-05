@@ -46,7 +46,29 @@ function makeGraphs(error, stats){
     .xAxisLabel("Team")
     .yAxis().ticks(20);
     
+    //  piecharts
     
+    var wonLostDrew_dimension = ndx.dimension( function(d){
+     
+     if( d.points==3) //d.scored > d.conceded
+     {
+      return "Won";
+     }
+     else if( d.points==0)
+     {
+       return "Lost";
+     }
+     else{
+      return "Drew";
+     }
+     
+    });
+    var wonLostDrew_group = wonLostDrew_dimension.group();
+    //console.log(wonLostDrew_group.all());
+    dc.pieChart("#won_lost_drew" )
+    .height(330).radius(90)
+    .dimension(wonLostDrew_dimension)
+    .group(wonLostDrew_group);
     
     
     
