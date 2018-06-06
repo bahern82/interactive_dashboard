@@ -122,6 +122,8 @@ function makeGraphs(error, stats){
     
     var points_per_month = date_dim.group().reduceSum(dc.pluck('points'));
     
+  
+    
     
     //console.log(points_per_month.all());
     
@@ -227,13 +229,17 @@ function makeGraphs(error, stats){
     
     //date_dim,minDate //.brushOn(false)
     var goals_dim = ndx.dimension( function(d) {
-       return [d.date, d.scored] //map to co ordinates
+       return [d.date, d.scored, d.team, d.opponent, d.conceded]; //map to co ordinates
     });
     var goals_group = goals_dim.group();
     var minDate2 = d3.time.day.offset(minDate, -10);
     var maxDate2 =d3.time.day.offset(maxDate, 10);
     
+    var teamColors = d3.scale.ordinal().domain(["man city","man utd","spurs","liverpool"])
+    .range(["blue","red","black","orange"]); // 1 to 1 mapping
+        
     
+    //console.log(goals_group.all());
     
     var goals_scatterplot = dc.scatterPlot("#scored_scatterplot")
     goals_scatterplot
@@ -243,10 +249,52 @@ function makeGraphs(error, stats){
     .symbolSize(8)
     .clipPadding(10)
     .yAxisLabel(" Goals Scored")
+    .title( function(d){
+       return `${d.key[2]} ${d.key[1]}  ${d.key[3]} ${d.key[4]} - ${d.key[0]}`;
+    })
+    .colorAccessor( function(d){
+     return d.key[2];
+    })
+    .colors(teamColors)
+    .brushOn(false)
     .dimension(goals_dim)
     .group(goals_group);
     
+     // conceded_scatterplot
     
+    
+    //date_dim,minDate //.brushOn(false)
+    var conceded_dim = ndx.dimension( function(d) {
+       return [d.date, d.conceded, d.team, d.opponent, d.scored]; //map to co ordinates
+    });
+    var conceded_group = conceded_dim.group();
+    var minDate2 = d3.time.day.offset(minDate, -10);
+    var maxDate2 =d3.time.day.offset(maxDate, 10);
+    
+    var teamColors = d3.scale.ordinal().domain(["man city","man utd","spurs","liverpool"])
+    .range(["blue","red","black","orange"]); // 1 to 1 mapping
+        
+    
+    //console.log(goals_group.all());
+    
+    var conceded_scatterplot = dc.scatterPlot("#conceded_scatterplot")
+    conceded_scatterplot
+    .width(768) .height(380)
+    .x(d3.time.scale().domain([minDate2 , maxDate2]) )
+    .y(d3.scale.linear().domain([-1,10]))
+    .symbolSize(8)
+    .clipPadding(10)
+    .yAxisLabel(" Goals Conceded")
+    .title( function(d){
+       return `${d.key[2]} ${d.key[4]}  ${d.key[3]} ${d.key[1]} - ${d.key[0]}`;
+    })
+    .colorAccessor( function(d){
+     return d.key[2];
+    })
+    .colors(teamColors)
+    .brushOn(false)
+    .dimension(conceded_dim)
+    .group(conceded_group);
     
     
     dc.renderAll(); 
