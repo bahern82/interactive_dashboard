@@ -114,19 +114,18 @@ function makeGraphs(error, stats){
     var parseDate = d3.time.format("%d/%m/%Y").parse;
     stats.forEach( function(d){
        d.date = parseDate( d.date);
+       d.scored=parseInt(d.scored);
+       d.conceded=parseInt(d.conceded);
+       d.points=parseInt(d.points);
     });
     var date_dim = ndx.dimension(dc.pluck('date'));
     
     var minDate = date_dim.bottom(1)[0].date;
     var maxDate = date_dim.top(1)[0].date;
     
+    /*
     var points_per_month = date_dim.group().reduceSum(dc.pluck('points'));
-    
-  
-    
-    
-    //console.log(points_per_month.all());
-    
+    console.log(points_per_month.all());
     dc.lineChart("#points_linechart")
     .width(1000) .height(400)
     .margins( {top: 10, right: 50, bottom: 30 , left: 50})
@@ -134,7 +133,7 @@ function makeGraphs(error, stats){
     .transitionDuration(500)
     .x(d3.time.scale().domain([minDate,maxDate]))
     .xAxisLabel("Month")
-    .yAxis().ticks(20);
+    .yAxis().ticks(20);*/
     
     //stacked charts
     
@@ -232,20 +231,28 @@ function makeGraphs(error, stats){
        return [d.date, d.scored, d.team, d.opponent, d.conceded]; //map to co ordinates
     });
     var goals_group = goals_dim.group();
-    var minDate2 = d3.time.day.offset(minDate, -10);
-    var maxDate2 =d3.time.day.offset(maxDate, 10);
+    var minDate2 = d3.time.day.offset(minDate, -5);
+    var maxDate2 =d3.time.day.offset(maxDate, 5);
     
     var teamColors = d3.scale.ordinal().domain(["man city","man utd","spurs","liverpool"])
     .range(["blue","red","black","orange"]); // 1 to 1 mapping
         
     
     //console.log(goals_group.all());
+    //var minDate = date_dim.bottom(1)[0].date;
+    /*  var date_dim = ndx.dimension(dc.pluck('date'));
+    var scored_dim = ndx.dimension(dc.pluck('scored'));
+    var minDate = date_dim.bottom(1)[0].date;
+    
+    */
+    var scored_dim = ndx.dimension(dc.pluck('scored'));
+    var maxScored = scored_dim.top(1)[0].scored;
     
     var goals_scatterplot = dc.scatterPlot("#scored_scatterplot")
     goals_scatterplot
-    .width(768) .height(380)
+    .width(768) .height(240)
     .x(d3.time.scale().domain([minDate2 , maxDate2]) )
-    .y(d3.scale.linear().domain([-1,10]))
+    .y(d3.scale.linear().domain([-1,maxScored]))
     .symbolSize(8)
     .clipPadding(10)
     .yAxisLabel(" Goals Scored")
@@ -261,15 +268,17 @@ function makeGraphs(error, stats){
     .group(goals_group);
     
      // conceded_scatterplot
-    
+    var conceded_dim1 = ndx.dimension(dc.pluck('conceded'));
+    var maxConceded = conceded_dim1.top(1)[0].conceded;
+    maxConceded  =parseInt(maxConceded);
     
     //date_dim,minDate //.brushOn(false)
     var conceded_dim = ndx.dimension( function(d) {
        return [d.date, d.conceded, d.team, d.opponent, d.scored]; //map to co ordinates
     });
     var conceded_group = conceded_dim.group();
-    var minDate2 = d3.time.day.offset(minDate, -10);
-    var maxDate2 =d3.time.day.offset(maxDate, 10);
+    var minDate2 = d3.time.day.offset(minDate, -5);
+    var maxDate2 =d3.time.day.offset(maxDate, 5);
     
     var teamColors = d3.scale.ordinal().domain(["man city","man utd","spurs","liverpool"])
     .range(["blue","red","black","orange"]); // 1 to 1 mapping
@@ -279,9 +288,9 @@ function makeGraphs(error, stats){
     
     var conceded_scatterplot = dc.scatterPlot("#conceded_scatterplot")
     conceded_scatterplot
-    .width(768) .height(380)
+    .width(768) .height(240)
     .x(d3.time.scale().domain([minDate2 , maxDate2]) )
-    .y(d3.scale.linear().domain([-1,10]))
+    .y(d3.scale.linear().domain([-1,maxConceded]))
     .symbolSize(8)
     .clipPadding(10)
     .yAxisLabel(" Goals Conceded")
