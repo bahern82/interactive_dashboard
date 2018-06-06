@@ -6,6 +6,11 @@ function makeGraphs(error, stats){
     var ndx = crossfilter(stats);
 
    var team_dim = ndx.dimension(dc.pluck('team'));
+   var team_group = team_dim.group();
+   
+   dc.selectMenu("#team_selector")
+   .dimension(team_dim)
+   .group(team_group);
    
     var total_points = team_dim.group().reduceSum(dc.pluck('points'));
     var goals_scored = team_dim.group().reduceSum(dc.pluck('scored'));
