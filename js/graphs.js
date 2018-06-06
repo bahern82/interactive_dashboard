@@ -222,6 +222,32 @@ function makeGraphs(error, stats){
     .legend( dc.legend().x(420).y(0).itemHeight(15).gap(5))
     .margins( {top: 10, right: 50, bottom: 30 , left: 50});
     
+    // scored_scatterplot
+    
+    
+    //date_dim,minDate //.brushOn(false)
+    var goals_dim = ndx.dimension( function(d) {
+       return [d.date, d.scored] //map to co ordinates
+    });
+    var goals_group = goals_dim.group();
+    var minDate2 = d3.time.day.offset(minDate, -10);
+    var maxDate2 =d3.time.day.offset(maxDate, 10);
+    
+    
+    
+    var goals_scatterplot = dc.scatterPlot("#scored_scatterplot")
+    goals_scatterplot
+    .width(768) .height(380)
+    .x(d3.time.scale().domain([minDate2 , maxDate2]) )
+    .y(d3.scale.linear().domain([-1,10]))
+    .symbolSize(8)
+    .clipPadding(10)
+    .yAxisLabel(" Goals Scored")
+    .dimension(goals_dim)
+    .group(goals_group);
+    
+    
+    
     
     dc.renderAll(); 
     
