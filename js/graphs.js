@@ -12,6 +12,72 @@ function makeGraphs(error, stats){
    .dimension(team_dim)
    .group(team_group);
    
+   //******************** %s ratios**************************
+   
+   //var points_dim = ndx.dimension(dc.pluck('points'));
+    var percent_ratio_group = ndx.groupAll().reduce( 
+     
+     //adder
+     function(p,v){
+       p.count++;
+       p.total_points += v.points;
+       p.total_scored += v.scored;
+       p.total_conceded += v.conceded;
+       return p;
+     },
+     //sub
+     function(p,v){
+      p.count--;
+      if(p.count==0){
+        p.total_points=0;
+         p.total_scored=0;
+         p.total_conceded=0;
+      }
+      else{
+           p.total_points -= v.points;
+           p.total_scored -= v.scored;
+           p.total_conceded -= v.conceded;
+          }
+      return p;
+      
+     },
+     //init
+     function(){
+      return{ count: 0, total_points: 0, total_scored: 0, total_conceded: 0 };
+     }
+     );
+     
+     dc.numberDisplay("#points_to_total_points_percentage")
+     .group(percent_ratio_group)
+     .formatNumber(d3.format(".2%"))
+     .valueAccessor( function(d){
+      if(d.count==0){ return 0}
+      else{  return d.total_points / (d.count * 3)}
+     
+     });
+
+     dc.numberDisplay("#scored_per_game_Ratio")
+     .group(percent_ratio_group)
+     .formatNumber(d3.format(".2"))
+     .valueAccessor( function(d){
+      if(d.count==0){ return 0}
+      else{  return (d.total_scored / d.count).toFixed(2)}
+     
+     });
+     
+       dc.numberDisplay("#conceded_per_game_Ratio")
+     .group(percent_ratio_group)
+     .formatNumber(d3.format(".2"))
+     .valueAccessor( function(d){
+      if(d.count==0){ return 0}
+      else{  return (d.total_conceded / d.count).toFixed(2)}
+     
+     });
+     
+     
+   
+   
+   
     var total_points = team_dim.group().reduceSum(dc.pluck('points'));
     var goals_scored = team_dim.group().reduceSum(dc.pluck('scored'));
    var goals_conceded = team_dim.group().reduceSum(dc.pluck('conceded'));
@@ -229,7 +295,7 @@ function makeGraphs(error, stats){
     .margins( {top: 10, right: 50, bottom: 30 , left: 50});
     
     // scored_scatterplot
-    
+   
     
     //date_dim,minDate //.brushOn(false)
     var goals_dim = ndx.dimension( function(d) {
