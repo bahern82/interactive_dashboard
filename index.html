@@ -17,6 +17,10 @@
     
     <script type="text/javascript" src="js/graphs.js"></script>
     
+    <script type="text/javascript" src="js/intro.js"></script>
+    <link rel="stylesheet" href="css/introjs.css" type="text/css" />
+    
+    
    
     
 </head>
@@ -25,11 +29,24 @@
         <header><h1> 2018 Premiership Top 4 Stats</h1></header>
         
         <div class="row">
-            <div class="col-sm-12 col-md-4">
-                <div id="team_selector"></div>
+            <div class="col-sm-12 col-md-4"  data-step="2" data-intro=" 
+                Selecting a team will cause:  (1) calculation of that teams 'Points %', 'Goals scored per Game Ratio' and 'Goals conceded per Game Ratio'.
+                (2) The redrawing of the dashboards 3 piecharts  will that teams statistics.
+                (3) Team filtering of the 2 scatterplots 
+                -Overriding- Selecting a team here will overide previously selected barchart filters.
+                -Overridden - Selecting one or more team filters on a bar chart will negate a previous selection here.
+                
+                ">
+                <div id="team_selector" ></div>
             </div>
-           
             <div class="col-sm-12 col-md-4">
+                <button onclick="javascript:introJs().start();"type="button" class="btn btn-primary" data-step="1" 
+                data-intro="This dashboard was created using D3's dimensional charting(DC.js) library. It therefore is highly interactive,
+                in the next few steps you will learn how various selections can impact numerous charts on the page. Before you make any 
+                filtering selections all dashboard statistics,piecharts and scatterplots are displaying information for 'ALL 4 Teams'   Note: you can end this
+                tour by pressing Esc at any time. ">Guide | Explanation</button>
+            </div>
+            <div class="col-sm-12 col-md-4" data-step="3" data-intro=" Use this button to reset the dashboard to the default filter - Meaning statistics,piecharts and scatterplots display information for 'All 4 Teams'">
                 <button onclick="javascript:dc.filterAll(); dc.renderAll();"type="button" class="btn btn-primary">Reset</button>
             </div>
             
@@ -38,11 +55,14 @@
         
         <div class="row">
             <div class="col-sm-4">
-                <div class="card">
-                    <div class="card-header">
+                <div class="card" >
+                    <div class="card-header" >
                         Points %
                     </div>
-                    <div class="card-body">
+                    <div class="card-body" data-step="4" data-intro=" By default this shows the percentage
+                    of points acquired by ALL teams. This statistic is affected by selecting a piechart attribute and/or team via the selection box or a bar chart.
+                    
+                    ">
                         <div id="points_to_total_points_percentage"></div>
                     </div>
                 </div>
@@ -52,7 +72,10 @@
                     <div class="card-header">
                         Goals scored per Game Ratio
                     </div>
-                    <div class="card-body">
+                    <div class="card-body" data-step="5" data-intro=" By default this shows the goals scored to game ratio
+                    for ALL teams. This statistic is affected by selecting a piechart attribute and/or team via the selection box or a bar chart.
+                    
+                    ">
                         <div id="scored_per_game_Ratio"></div>
                     </div>
                 </div>
@@ -62,7 +85,10 @@
                     <div class="card-header">
                         Goals conceded per Game Ratio
                     </div>
-                    <div class="card-body">
+                    <div class="card-body" data-step="6" data-intro=" By default this shows the goals conceded to game ratio
+                    for ALL teams. This statistic is affected by selecting a piechart attribute and/or team via the selection box or a bar chart.
+                    
+                    ">
                         <div id="conceded_per_game_Ratio"></div>
                     </div>
                 </div>
@@ -189,7 +215,7 @@
             </div>
         </div> <!-- end row -->
        
-      
+    
     
     
     </div> <!-- end container -->
