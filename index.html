@@ -15,6 +15,8 @@
     <script type="text/javascript" src="js/dc.min.js"></script> 
     <script type="text/javascript" src="js/queue.min.js"></script>
     
+    <script type="text/javascript" src="js/graphs.js"></script>
+    
    
     
 </head>
@@ -26,6 +28,12 @@
             <div class="col-sm-12 col-md-4">
                 <div id="team_selector"></div>
             </div>
+           
+            <div class="col-sm-12 col-md-4">
+                <button onclick="javascript:dc.filterAll(); dc.renderAll();"type="button" class="btn btn-primary">Reset</button>
+            </div>
+            
+           
         </div>
         
         <div class="row">
@@ -185,6 +193,6 @@
     
     
     </div> <!-- end container -->
-    <script type="text/javascript" src="js/graphs.js"></script>
+    
 </body>
 </html>

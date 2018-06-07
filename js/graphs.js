@@ -380,6 +380,8 @@ function makeGraphs(error, stats){
     dc.renderAll(); 
     
     
+    
 }   
     
-   
+
+    
