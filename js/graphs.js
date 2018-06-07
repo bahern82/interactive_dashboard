@@ -73,7 +73,7 @@ function makeGraphs(error, stats){
       else{  return (d.total_conceded / d.count).toFixed(2)}
      
      });
-     
+     //***************end ratios,percent**********
      
    
    
@@ -84,38 +84,6 @@ function makeGraphs(error, stats){
     
     
     
-    dc.barChart("#total_points")
-    .width(300) . height(200)
-    .margins( {top: 10, right: 50, bottom: 30 , left: 50})
-    .dimension(team_dim) .group(total_points)
-    .transitionDuration(500)
-    .x(d3.scale.ordinal())
-    .xUnits(dc.units.ordinal)
-    .xAxisLabel("Team")
-    .yAxis().ticks(20);
-    
-    
-    
-    dc.barChart("#total_scored")
-    .width(300) . height(200)
-    .margins( {top: 10, right: 50, bottom: 30 , left: 50})
-    .dimension(team_dim) .group(goals_scored)
-    .transitionDuration(500)
-    .x(d3.scale.ordinal())
-    .xUnits(dc.units.ordinal)
-    .xAxisLabel("Team")
-    .yAxis().ticks(20);
-    
-    
-    dc.barChart("#total_conceded")
-    .width(300) . height(200)
-    .margins( {top: 10, right: 50, bottom: 30 , left: 50})
-    .dimension(team_dim) .group(goals_conceded)
-    .transitionDuration(500)
-    .x(d3.scale.ordinal())
-    .xUnits(dc.units.ordinal)
-    .xAxisLabel("Team")
-    .yAxis().ticks(20);
     
     //  piecharts
     
