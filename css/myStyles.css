@@ -1,0 +1,29 @@
+div.card{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+div.card-header{
+   text-align: center;
+}
+.distribution{
+     overflow: scroll;
+}
+#team_selector{
+    display: inline;
+}
+.dc-chart .number-display{
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+
+
+
+
+@media only screen and (min-width: 768px) {
+    
+.distribution{
+     overflow: auto;
+}
+
+}    
