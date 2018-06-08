@@ -84,10 +84,10 @@ function makeGraphs(error, stats){
     
     
     
+    //*************** piecharts******************
     
-    //  piecharts
     
-    var wonLostDrew_dimension = ndx.dimension( function(d){
+    var wonLostDrew_dimension = ndx.dimension( function(d){ //derived
      
      if( d.points==3) //d.scored > d.conceded
      {
@@ -105,7 +105,7 @@ function makeGraphs(error, stats){
     var wonLostDrew_group = wonLostDrew_dimension.group();
     //console.log(wonLostDrew_group.all());
     dc.pieChart("#won_lost_drew" )
-    .height(330).radius(90)
+    .height(140).radius(60)
     .dimension(wonLostDrew_dimension)
     .group(wonLostDrew_group);
     
@@ -123,10 +123,8 @@ function makeGraphs(error, stats){
     });
     var scoredHomeAway_group = scoredHomeAway_dimension.group().reduceSum(dc.pluck('scored'));
     
-
-    
     dc.pieChart("#scoredHomeAway_piechart" )
-    .height(330).radius(90)
+    .height(140).radius(60)
     .dimension(scoredHomeAway_dimension)
     .group(scoredHomeAway_group);
     
@@ -144,7 +142,7 @@ function makeGraphs(error, stats){
     var concededHomeAway_group = scoredHomeAway_dimension.group().reduceSum(dc.pluck('conceded'));
     
     dc.pieChart("#concededHomeAway_piechart" )
-    .height(330).radius(90)
+    .height(140).radius(60)
     .dimension(concededHomeAway_dimension)
     .group(concededHomeAway_group );
     
@@ -161,18 +159,6 @@ function makeGraphs(error, stats){
     
     var minDate = date_dim.bottom(1)[0].date;
     var maxDate = date_dim.top(1)[0].date;
-    
-    /*
-    var points_per_month = date_dim.group().reduceSum(dc.pluck('points'));
-    console.log(points_per_month.all());
-    dc.lineChart("#points_linechart")
-    .width(1000) .height(400)
-    .margins( {top: 10, right: 50, bottom: 30 , left: 50})
-    .dimension(date_dim) .group(points_per_month)
-    .transitionDuration(500)
-    .x(d3.time.scale().domain([minDate,maxDate]))
-    .xAxisLabel("Month")
-    .yAxis().ticks(20);*/
     
     //stacked charts
     
@@ -289,7 +275,7 @@ function makeGraphs(error, stats){
     
     var goals_scatterplot = dc.scatterPlot("#scored_scatterplot")
     goals_scatterplot
-    .width(768) .height(240)
+    .width(710) .height(240)
     .x(d3.time.scale().domain([minDate2 , maxDate2]) )
     .y(d3.scale.linear().domain([-1,maxScored]))
     .symbolSize(8)
@@ -323,11 +309,11 @@ function makeGraphs(error, stats){
     .range(["blue","red","black","orange"]); // 1 to 1 mapping
         
     
-    //console.log(goals_group.all());
+    //console.log(goals_group.all());  /width 768
     
     var conceded_scatterplot = dc.scatterPlot("#conceded_scatterplot")
     conceded_scatterplot
-    .width(768) .height(240)
+    .width(710) .height(240)
     .x(d3.time.scale().domain([minDate2 , maxDate2]) )
     .y(d3.scale.linear().domain([-1,maxConceded]))
     .symbolSize(8)

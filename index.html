@@ -7,6 +7,10 @@
     <title>Premiership Top 4 Statistics</title>
     
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="js/bootstrap.js"></script>
     
     <link rel="stylesheet" href="css/dc.min.css" type="text/css" />
     
@@ -25,8 +29,28 @@
     
 </head>
 <body>
-    <div class="container">
-        <header><h1> 2018 Premiership Top 4 Stats</h1></header>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+          <a class="navbar-brand" href="#">2018 Premiership Top 4 Stats</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+          <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item ">
+                <a  onclick="javascript:introJs().start();" class="nav-link" href="#" data-step="1" 
+                data-intro="This dashboard was created using D3's dimensional charting(DC.js) library. It therefore is highly interactive,
+                in the next few steps you will learn how various selections can impact numerous charts on the page. Before you make any 
+                filtering selections all dashboard statistics,piecharts and scatterplots are displaying information for 'ALL 4 Teams'   Note: you can end this
+                tour by pressing Esc at any time. ">Guide | Explanation</a>
+              </li>
+              <li class="nav-item">
+                <a onclick="javascript:dc.filterAll(); dc.renderAll();" class="nav-link" href="#" data-step="3" data-intro=" Use this button to reset the dashboard to the default filter - Meaning statistics,piecharts and scatterplots display information for 'All 4 Teams'">Reset</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
         
         <div class="row">
             <div class="col-sm-12 col-md-4"  data-step="2" data-intro=" 
@@ -36,72 +60,48 @@
                 -Overriding- Selecting a team here will overide previously selected barchart filters.
                 -Overridden - Selecting one or more team filters on a bar chart will negate a previous selection here.
                 
-                ">
-                <div id="team_selector" ></div>
+                "> 
+                <div>
+                    <div><h2> Select a Team</h2></div>
+                    <div id="team_selector" ></div> 
+                </div>
+               
+                
             </div>
-            <div class="col-sm-12 col-md-4">
-                <button onclick="javascript:introJs().start();"type="button" class="btn btn-primary" data-step="1" 
-                data-intro="This dashboard was created using D3's dimensional charting(DC.js) library. It therefore is highly interactive,
-                in the next few steps you will learn how various selections can impact numerous charts on the page. Before you make any 
-                filtering selections all dashboard statistics,piecharts and scatterplots are displaying information for 'ALL 4 Teams'   Note: you can end this
-                tour by pressing Esc at any time. ">Guide | Explanation</button>
-            </div>
-            <div class="col-sm-12 col-md-4" data-step="3" data-intro=" Use this button to reset the dashboard to the default filter - Meaning statistics,piecharts and scatterplots display information for 'All 4 Teams'">
-                <button onclick="javascript:dc.filterAll(); dc.renderAll();"type="button" class="btn btn-primary">Reset</button>
-            </div>
+           
             
            
-        </div>
+        </div> <!-- end row-->
         
         <div class="row">
-            <div class="col-sm-4">
-                <div class="card" >
-                    <div class="card-header" >
-                        Points %
+            <div class="col-sm-4  col-md-2">
+                <div>
+                    <div class="card" >
+                        <div class="card-header" >
+                            Points %
+                        </div>
+                        <div class="card-body" data-step="4" data-intro=" By default this shows the percentage
+                        of points acquired by ALL teams. This statistic is affected by selecting a piechart attribute and/or team via the selection box or a bar chart.
+                        ">
+                            <div id="points_to_total_points_percentage"></div>
+                        </div>
                     </div>
-                    <div class="card-body" data-step="4" data-intro=" By default this shows the percentage
-                    of points acquired by ALL teams. This statistic is affected by selecting a piechart attribute and/or team via the selection box or a bar chart.
-                    
-                    ">
-                        <div id="points_to_total_points_percentage"></div>
+                    <div class="card">
+                        <div class="card-header">
+                            Scored per Game Ratio
+                        </div>
+                        <div class="card-body" data-step="5" data-intro=" By default this shows the goals scored to game ratio
+                        for ALL teams. This statistic is affected by selecting a piechart attribute and/or team via the selection box or a bar chart
+                        ">
+                            <div id="scored_per_game_Ratio"></div>
+                        </div>
                     </div>
-                </div>
+                </div>   
             </div>
-            <div class="col-sm-4">
-                <div class="card">
-                    <div class="card-header">
-                        Goals scored per Game Ratio
-                    </div>
-                    <div class="card-body" data-step="5" data-intro=" By default this shows the goals scored to game ratio
-                    for ALL teams. This statistic is affected by selecting a piechart attribute and/or team via the selection box or a bar chart.
-                    
-                    ">
-                        <div id="scored_per_game_Ratio"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card">
-                    <div class="card-header">
-                        Goals conceded per Game Ratio
-                    </div>
-                    <div class="card-body" data-step="6" data-intro=" By default this shows the goals conceded to game ratio
-                    for ALL teams. This statistic is affected by selecting a piechart attribute and/or team via the selection box or a bar chart.
-                    
-                    ">
-                        <div id="conceded_per_game_Ratio"></div>
-                    </div>
-                </div>
-                 
-            </div>
-        </div>
-        
-       
-        <div class="row">
-            <div class="col-sm-12 col-md-4">
+            <div class="col-sm-4 col-md-3">
                   <div class="card">
                     <div class="card-header">
-                        Games Won,Lost and Drew
+                         Won,Lost and Drawn
                     </div>
                     <div class="card-body">
                         <div id="won_lost_drew"></div>
@@ -109,33 +109,47 @@
                 </div>
             </div>
             
-            <div class="col-sm-12 col-md-4">
+            <div class="col-sm-12 col-md-3">
                  <div class="card">
                     <div class="card-header">
-                        Goals Scored Home and Away
+                         Scored Home and Away
                     </div>
                     <div class="card-body">
                         <div id="scoredHomeAway_piechart"></div>
                     </div>
                 </div>
             </div>
-            
-            <div class="col-sm-12 col-md-4">
+            <div class="col-sm-12 col-md-3">
                 <div class="card">
                     <div class="card-header">
-                        Goals Conceded Home and Away
+                         Conceded Home and Away
                     </div>
                     <div class="card-body">
                         <div id="concededHomeAway_piechart"></div>
                     </div>
                 </div>  
             </div>
-       </div> <!--end row-->
+            
+        </div> <!-- end row-->
+        
+       
         <div class="row">
-            <div class="col-sm-12 col-md-4">
+            <div class="col-sm-4  col-md-2">
+                <div class="card">
+                    <div class="card-header">
+                        Conceded per Game Ratio
+                    </div>
+                    <div class="card-body" data-step="6" data-intro=" By default this shows the goals conceded to game ratio
+                    for ALL teams. This statistic is affected by selecting a piechart attribute and/or team via the selection box or a bar chart.
+                    ">
+                        <div id="conceded_per_game_Ratio"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-3">
                  <div class="card">
                     <div class="card-header">
-                        Points In Home and Away Games
+                        Points Home and Away
                     </div>
                     <div class="card-body">
                         <div id="points_stackedChart"></div>
@@ -143,10 +157,10 @@
                 </div>
             </div>
             
-            <div class="col-sm-12 col-md-4">
+            <div class="col-sm-12 col-md-3">
                  <div class="card">
                     <div class="card-header">
-                        Goals scored In Home and Away Games
+                     Scored Home and Away
                     </div>
                     <div class="card-body">
                         <div id="scored_stackedChart"></div>
@@ -154,10 +168,10 @@
                 </div>
             </div>
             
-            <div class="col-sm-12 col-md-4">
+            <div class="col-sm-12 col-md-3">
                    <div class="card">
                         <div class="card-header">
-                            Goals conceded In Home and Away Games
+                             Conceded Home and Away
                         </div>
                         <div class="card-body">
                             <div id="conceded_stackedChart"></div>
@@ -165,16 +179,26 @@
                     </div>
             </div>
             
-        </div> <!-- end row-->
-        
+            
+       </div> <!--end row-->
+
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-12 col-md-8 offset-md-2 col-lg-10 offset-lg-1 offset-xl-0 col-xl-6">
                 <div class="card">
                     <div class="card-header">
-                        Scatterplot of goals scored | Scatterplot of goals conceded
+                        Distribution Of Goals Scored 
                     </div>
                     <div class="card-body">
                         <div id="scored_scatterplot"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-8 offset-md-2 col-lg-10 offset-lg-1 offset-xl-0 col-xl-6">
+                <div class="card">
+                    <div class="card-header">
+                        Distribution Of Goals Conceded
+                    </div>
+                    <div class="card-body">
                         <div id="conceded_scatterplot"></div>
                     </div>
                 </div>
