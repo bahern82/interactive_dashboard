@@ -36,12 +36,11 @@
             <ul class="navbar-nav mr-auto">
               <li class="nav-item ">
                 <a  onclick="javascript:introJs().start();" class="nav-link" href="#" data-step="1" 
-                data-intro="This dashboard was created using D3's dimensional charting(DC.js) library. It therefore is highly interactive,
-                in the next few steps you will learn how various selections can impact numerous charts on the page. Before you make any 
-                filtering selections all dashboard statistics,piecharts and scatterplots are displaying information for 'ALL 4 Teams'   Note: you can end this
-                tour by pressing Esc at any time. ">Guide | Explanation</a>
+                data-intro="This dashboard is highly interactive,
+                The next steps will explain how various interactions can impact dashboard charts and statistics. By default all teams and games are selected. You can exit this tour by pressing 'Esc' at any time.
+                 ">Guide | Explanation</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" data-step="2" data-intro="Press this link to bring the dashboard back to the default of all teams and games">
                 <a onclick="javascript:dc.filterAll(); dc.renderAll();" class="nav-link" href="#" data-step="3" data-intro=" Use this button to reset the dashboard to the default filter - Meaning statistics,piecharts and scatterplots display information for 'All 4 Teams'">Reset</a>
               </li>
             </ul>
@@ -49,51 +48,50 @@
         </nav>
         
         <div class="row">
-            <div class="col-12 col-sm-4"  data-step="2" data-intro=" 
-                Selecting a team will cause:  (1) calculation of that teams 'Points %', 'Goals scored per Game Ratio' and 'Goals conceded per Game Ratio'.
-                (2) The redrawing of the dashboards 3 piecharts  will that teams statistics.
-                (3) Team Filtering of the 2 scatterplots 
+            <div class="col-12"> 
+                <div class="mt-2 d-flex justify-content-center">
+                    <div id="team_selector" data-step="3" data-intro=" 
+                By default all teams are selected, selecting a team will display that team's individual ratios and details on the piecharts and scatterplots.
+                *****
                 -Overriding- Selecting a team here will overide previously selected barchart filters.
-                -Overridden - Selecting one or more team filters on a bar chart will negate a previous selection here."> 
-                <div class="mt-2">
-                    <div id="team_selector" ></div> 
+                -Overridden - Selecting one or more team filters on a bar chart will negate a previous selection here." ></div> 
                 </div>
             </div>
         </div> <!-- end row-->
         
         <div class="row">
             <div class="col-sm-4">
-                <div class="card" >
+                <div class="card" data-step="4" data-intro=" By default this shows the percentage
+                    of points acquired by ALL teams. This statistic is affected by selecting a piechart attribute and/or team via the selection box or a bar chart.
+                    " >
                     <div class="card-header" >
                         Points Per Game %
                     </div>
-                    <div class="card-body d-flex justify-content-center" data-step="4" data-intro=" By default this shows the percentage
-                    of points acquired by ALL teams. This statistic is affected by selecting a piechart attribute and/or team via the selection box or a bar chart.
-                    ">
+                    <div class="card-body d-flex justify-content-center">
                         <div id="points_to_total_points_percentage"></div>
                     </div>
                 </div>
             </div>
             <div class="col-sm-4">
-                <div class="card">
+                <div class="card" data-step="5" data-intro=" By default this shows the goals scored to game ratio
+                    for ALL teams. This statistic is affected by selecting a piechart attribute and/or team via the selection box or a bar chart
+                    ">
                     <div class="card-header">
                         <span class="ratio"></span>Scored per Game Ratio
                     </div>
-                    <div class="card-body d-flex justify-content-center" data-step="5" data-intro=" By default this shows the goals scored to game ratio
-                    for ALL teams. This statistic is affected by selecting a piechart attribute and/or team via the selection box or a bar chart
-                    ">
+                    <div class="card-body d-flex justify-content-center">
                         <div id="scored_per_game_Ratio"></div>
                     </div>
                 </div>
             </div>
             <div class="col-sm-4">
-                <div class="card">
+                <div class="card" data-step="6" data-intro=" By default this shows the goals conceded to game ratio
+                    for ALL teams. This statistic is affected by selecting a piechart attribute and/or team via the selection box or a bar chart.
+                    ">
                     <div class="card-header">
                        <span class="ratio"></span> Conceded per Game Ratio
                     </div>
-                    <div class="card-body d-flex justify-content-center" data-step="6" data-intro=" By default this shows the goals conceded to game ratio
-                    for ALL teams. This statistic is affected by selecting a piechart attribute and/or team via the selection box or a bar chart.
-                    ">
+                    <div class="card-body d-flex justify-content-center">
                         <div id="conceded_per_game_Ratio"></div>
                     </div>
                 </div>
@@ -104,7 +102,7 @@
         <div class="row">
             
             <div class="col-sm-6 col-lg-4 ">
-                  <div class="card">
+                  <div class="card data-step="7" data-intro=" This piechart can be adjusted by two things: (1) Selecting a team. A team can be selected using the selection box or by selecting one ore more teams on a barchart. (2) Selecting `Home` or `Away` on another piechart.  *(1) and (2) can be used in unison. Selecting one or more areas on a pie chart influences ratio calculations, bar-charts,scatterplots and other pie charts.">
                     <div class="card-header">
                          Won,Lost and Drawn
                     </div>
@@ -115,7 +113,7 @@
             </div>
             
             <div class="col-sm-6 col-lg-4 ">
-                 <div class="card">
+                 <div class="card" data-step="8" data-intro=" This piechart can be adjusted by two things: (1) Selecting a team. A team can be selected using the selection box or by selecting one ore more teams on a barchart. (2) Selecting `Won`,`Lost` or `Drew` on Won-Lost-Drawn piechart.  *(1) and (2) can be used in unison. Selecting `home` or `Away` influences ratio calculations, bar-charts,scatterplots and other pie charts.">
                     <div class="card-header">
                          Scored Home and Away
                     </div>
@@ -125,7 +123,7 @@
                 </div>
             </div>
             <div class="col-sm-6 col-lg-4 ">
-                <div class="card">
+                <div class="card" data-step="9" data-intro=" This piechart can be adjusted by two things: (1) Selecting a team. A team can be selected using the selection box or by selecting one ore more teams on a barchart. (2) Selecting `Won`,`Lost` or `Drew` on Won-Lost-Drawn piechart.  *(1) and (2) can be used in unison. Selecting `home` or `Away` influences ratio calculations, bar-charts,scatterplots and other pie charts.">
                     <div class="card-header">
                          Conceded Home and Away
                     </div>
@@ -136,7 +134,7 @@
             </div>
             
             <div class="col-sm-6 col-lg-4 ">
-                 <div class="card">
+                 <div class="card" data-step="10" data-intro="On a Barchart you can select one or more teams, the statistics for the selected team(s) will be shown on  ratio calculations,scatterplots and pie charts.">
                     <div class="card-header">
                         Points Home and Away
                     </div>
@@ -146,7 +144,7 @@
                 </div>
             </div>
             <div class="col-sm-6 col-lg-4 ">
-                 <div class="card">
+                 <div class="card" data-step="11" data-intro="Selecting one or more teams on a Barchart overrides a previous team selection on the selection box at the top of the page.">
                     <div class="card-header">
                      Scored Home and Away
                     </div>
@@ -156,7 +154,7 @@
                 </div>
             </div>
             <div class="col-sm-6 col-lg-4 ">
-                   <div class="card">
+                   <div class="card" data-step="12" data-intro="Selecting a team using the selection box at the top of the page will override a previous selection of one or more teams on a Barchart.">
                         <div class="card-header">
                              Conceded Home and Away
                         </div>
@@ -170,7 +168,7 @@
 
         <div class="row">
             <div class=" col-12 col-lg-10 offset-lg-1 offset-xl-0 col-xl-6">
-                <div class="card  distribution">
+                <div class="card  distribution" data-step="13" data-intro="Scatterplots can be adjusted by two things: (1) Selecting a team. A team can be selected using the selection box or by selecting one ore more teams on a barchart. (2) Selecting an area(s) on one or more Piecharts.  *(1) and (2) can be used in unison. ">
                     <div class="card-header">
                         Distribution Of Goals Scored 
                     </div>
@@ -180,7 +178,7 @@
                 </div>
             </div>
             <div class="col-12 col-lg-10 offset-lg-1 offset-xl-0 col-xl-6">
-                <div class="card distribution">
+                <div class="card distribution" data-step="14" data-intro=" This scatterplot allows you to see how often a team(s) conceded a certain number of goals. Visualisation is easiest when only one team is selected via Barchart or the selection box at the top of the page">
                     <div class="card-header">
                         Distribution Of Goals Conceded
                     </div>
