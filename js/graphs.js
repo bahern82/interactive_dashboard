@@ -251,7 +251,7 @@ function makeGraphs(error, stats){
     // scored_scatterplot
    
     
-    //date_dim,minDate //.brushOn(false)
+    //date_dim,minDate //
     var goals_dim = ndx.dimension( function(d) {
        return [d.date, d.scored, d.team, d.opponent, d.conceded]; //map to co ordinates
     });

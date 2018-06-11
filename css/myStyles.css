@@ -20,10 +20,5 @@ div.card-header{
 
 
 
-@media only screen and (min-width: 768px) {
-    
-.distribution{
-     overflow: auto;
-}
 
-}    
+
