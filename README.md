@@ -2,12 +2,11 @@
 
 ## Dashboards Target Audience 
 
-The target audience of this dashboard is fans of the top 4 clubs in England and people who are interested in football statistics. 
+The target audience of this dashboard is fans of the top 4 football clubs in England and people who are interested in football statistics. 
 
 ## The Purpose of this Website
 
 The purpose of this website is to showcase the statistics of the Premier Leagues's Top 4 Teams in a highly interactive manner. The charting of all top 4 2017-2018 game stats allows soccer fans to visualise each teams strengths and weaknesses with ease.
-This dashboard is highly responsive and a mobile-first approach has been used.
 
 ## Technologies used
 
@@ -29,6 +28,14 @@ Using javascript(code in test.js) the original dataset was converted into a form
 This form is more suitable because the dashboard is only conveying the statistics of top 4 teams and not every team in the league. The points have been calculated to reduce additional calculations when charting. 
 
 ## Functionality/Design
+
+### Wireframe
+A wireframe was designed to visualise development needs.
+
+![Top 4 statistics](mockups/big_mockup.JPG)
+
+### Deviation From Design
+After development of the points trend composite chart it was clear the chart would not be suitable for the purpose intended. The problem was that games are played on numerous days - Friday,Saturday,Sunday etc and not every team plays on every day. This meant that for days a team wasn't playing the line graph nosedived to zero points making it look as if the team had lost, but in fact the team just hadn't played that day. Not only was the chart misleading it was ugly visually. The decision was made to remove the composite chart and make the percentage and ratio statistics more prominent. 
 
 ### Layout   
 
@@ -90,7 +97,9 @@ The scatterplot charts are extremely useful for identifying how often a team has
 
 For testing purposes Cloud9's run mode was used to host the website during development.
 
-The dashboard was thoroughly tested during development in Chrome developer tools as each feature was introduced.It was tested in terms of appearance and functionality on mobiles,tablets and laptop devices. As an extra precaution all links,functionality and layouts have been checked post development and post deployment in Google Chrome.
+The dashboard was thoroughly tested during development in Chrome developer tools as each feature was introduced.It was tested in terms of appearance and functionality on mobiles,tablets and laptop devices. Calculated statistics used on the dashboard e.g. "Points Per Game %","goals per game" were manually compared against those found on the offical Premiership website - https://www.premierleague.com/ .
+
+As an extra precaution all links,functionality and layouts have been checked post development and post deployment in Google Chrome. The use of dataset filters (including combinations) was thoroughly tested post deployment.
 No issues were detected in Google Chrome browser.
 
 ### Validation
