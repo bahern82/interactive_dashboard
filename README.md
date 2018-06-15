@@ -2,7 +2,7 @@
 
 ## Dashboards Target Audience 
 
-The target audience of this dashboard is fans of the top 4 football clubs in England and people who are interested in football statistics. 
+The target audience of this dashboard is fans of the top 4 football clubs in England and people who are interested in football statistics.
 
 ## The Purpose of this Website
 
@@ -21,7 +21,7 @@ The original dataset was in a JSON file, each datum was in the form below:
 
 `{"date": "12/08/2017", "hTeam": "watford", "aTeam":"liverpool", "hTeamScore" : "3" ,"aTeamScore": "3"}`
 
-Using javascript(code in test.js) the original dataset was converted into a form more suitable for charting:
+Using javascript(code in "pre_process_data.js") the original dataset was converted into a form more suitable for charting:
 
 `{ "date": "13/08/2017", "team": "spurs", "opponent": "newcastle", "home": "false", "scored": "2", "conceded": "0", "points": "3" },`
 
@@ -30,7 +30,7 @@ This form is more suitable because the dashboard is only conveying the statistic
 ## Functionality/Design
 
 ### Wireframe
-A wireframe was designed to visualise development needs.
+A wireframe was designed to visualise development needs. The priority of this project was to look good on large and extra large screens.
 
 ![Top 4 statistics](mockups/big_mockup.JPG)
 
@@ -44,8 +44,6 @@ For screen sizes less than 576 pixels the layout is single column. An `overflow:
 For small screen sizes a more attractive layout is used. The first row contains the 3 statistical calculations.The next three rows contain 2 charts each. The last last 2 rows contain 1 scatterplot chart each.
 
 For large screens 3 columns are used for statistics, piecharts and barcharts.
-
-On extra large screens the scatterplots are displayed side by side so viewers can easily view all statistics on the same screen.
 
 Flexbox has been used to align items horizontally.
 
@@ -72,7 +70,6 @@ Points percentage per games played, goals scored per game ratio and goals conced
 The crossfilter groupAll() function was used in conjunction with a custom reduce function to create a group(percent_ratio_group) which determines - total points, total goals scored,total goals conceded and count based on all records or records left after applied filters.
 The `percent_ratio_group` group was used in conjunction with the `valueAccessor` property of NumberDisplay charts to determine ratios and percentages.
 
-
 #### Pie Charts
 
 The three piecharts on the dashboard are reactive to the selection of a team filter via the select menu or the selection of one or more teams via a barchart.The selection of one or more piechart areas applies a filter to the dataset which impacts NumberDisplays, barcharts and scatterplots.
@@ -80,16 +77,14 @@ The three piecharts on the dashboard are reactive to the selection of a team fil
 The `wonLostDrew_dimension` dimension used for the WonLostDrawn piechart  is created from a derived function e.g. if the points column for a record is 3 this will be displayed on the piechart as part of the `won` portion.
 The `scoredHomeAway_dimension`and `concededHomeAway_dimension` dimensions are created from  derived functions e.g. if the home column has `false` for a record it can be part of the `away` portion for the scoredHomeAway and concededHomeAway piecharts.
 
-
 #### Stacked Bar Charts
 
 The three barcharts can be used to select a filter of one or more teams, selecting a team(applies a filter to the dataset) will affect number displays, piecharts and scatterplots. The stacked barcharts display information in terms of home and away statistics.
 The stacked barcharts were created using custom reduceSum groupings.
 
-
 #### Scatterplots
 
-The scatterplot charts are extremely useful for identifying how often a team has scored or conceded a certain amount of goals in the given season. Scatterplots are affected by selected team and piechart filters. 
+The scatterplot charts are extremely useful for identifying how often a team has scored or conceded a certain amount of goals in the given season. Scatterplots are affected by selected team and piechart filters. The "Distribution Of Goals Conceded" has a brush feature which allows a user to select a number of games over a period of time   
 
 ## Testing
 
@@ -105,7 +100,7 @@ No issues were detected in Google Chrome browser.
 ### Validation
 
 The HTML file has been HTML5 validated using https://validator.w3.org . The CSS file was validated using https://jigsaw.w3.org/css-validator/  . The input dataset(JSON file) was JSON validated before development began.
-
+The "graph.js" file has been put through the JavaScript Code Quality Tool located here https://www.jslint.com/ . Non page breaking errors were fixed. 
 
 ### Cross browser compatibility testing
 
