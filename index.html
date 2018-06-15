@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="css/introjs.css" type="text/css" />
     <link rel="stylesheet" href="css/myStyles.css" type="text/css" />
 </head>
-<body>
+<body onload="javascript:introJs().start();">
     <div class="container-fluid">
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
           <a class="navbar-brand" href="#">2018 Premiership Top 4 Stats</a>
@@ -33,10 +33,10 @@
               <li class="nav-item ">
                 <a  onclick="javascript:introJs().start();" class="nav-link" href="#" data-step="1" 
                 data-intro="This dashboard is highly interactive,
-                The next steps will explain how various interactions can impact dashboard charts and statistics. By default all teams and games are selected. You can exit this tour by pressing 'Esc' at any time.
+                The next steps will explain how various interactions can impact dashboard charts and statistics. By default all teams and games are selected. <p>You can exit this tour by pressing <strong>'Esc'</strong> at any time.<p>
                  ">Guide | Explanation</a>
               </li>
-              <li class="nav-item" data-step="2" data-intro="Press this link to bring the dashboard back to the default of all teams and games">
+              <li class="nav-item" data-step="2" data-intro="Press <strong>Reset</strong> to bring the dashboard back to the default of all teams and all games">
                 <a onclick="javascript:dc.filterAll(); dc.renderAll();" class="nav-link" href="#" data-step="3" data-intro=" Use this button to reset the dashboard to the default filter - Meaning statistics,piecharts and scatterplots display information for 'All 4 Teams'">Reset</a>
               </li>
             </ul>
@@ -48,9 +48,9 @@
                 <div class="mt-2 d-flex justify-content-center">
                     <div id="team_selector" data-step="3" data-intro=" 
                 By default all teams are selected, selecting a team will display that team's individual ratios and details on the piecharts and scatterplots.
-                *****
-                -Overriding- Selecting a team here will overide previously selected barchart filters.
-                -Overridden - Selecting one or more team filters on a bar chart will negate a previous selection here." ></div> 
+               
+                <p><strong>Overriding</strong>- Selecting a team here will overide previously selected teams on a barchart.</p>
+                <p>-<strong>Overridden</strong> - Selecting one or more team filters on a bar chart will negate a previous selection here.</p>" ></div> 
                 </div>
             </div>
         </div> <!-- end row-->
@@ -58,7 +58,7 @@
         <div class="row">
             <div class="col-sm-4">
                 <div class="card" data-step="4" data-intro=" By default this shows the percentage
-                    of points acquired by ALL teams. This statistic is affected by selecting a piechart attribute and/or team via the selection box or a bar chart.
+                    of points acquired by all teams in all games. <p>This statistic is affected by selecting a piechart attribute and/or team via a bar chart or the selection box</p>.
                     " >
                     <div class="card-header" >
                         Points Per Game %
@@ -70,7 +70,7 @@
             </div>
             <div class="col-sm-4">
                 <div class="card" data-step="5" data-intro=" By default this shows the goals scored to game ratio
-                    for ALL teams. This statistic is affected by selecting a piechart attribute and/or team via the selection box or a bar chart
+                    for ALL teams in all games.<p> This statistic can be affected in 2 ways: <p>1. By selecting one or more pie chart areas - Home or Away, Won,Lost or Drew</p><p>2. Selecting one or more teams on a single bar chart, or selecting a team or all teams using the selection box</p>
                     ">
                     <div class="card-header">
                         <span class="ratio"></span>Scored per Game Ratio
@@ -82,7 +82,7 @@
             </div>
             <div class="col-sm-4">
                 <div class="card" data-step="6" data-intro=" By default this shows the goals conceded to game ratio
-                    for ALL teams. This statistic is affected by selecting a piechart attribute and/or team via the selection box or a bar chart.
+                    for ALL teams in ALL games.<p> This statistic can be affected in 2 ways: <p>1. By selecting one or more pie chart areas - Home or Away, Won,Lost or Drew</p><p>2. Selecting one or more teams on a single bar chart, or selecting a team or all teams using the selection box</p>
                     ">
                     <div class="card-header">
                        <span class="ratio"></span> Conceded per Game Ratio
@@ -98,7 +98,7 @@
         <div class="row">
             
             <div class="col-sm-6 col-lg-4 ">
-                  <div class="card" data-step="7" data-intro=" This piechart can be adjusted by two things: (1) Selecting a team. A team can be selected using the selection box or by selecting one ore more teams on a barchart. (2) Selecting `Home` or `Away` on another piechart.  *(1) and (2) can be used in unison. Selecting one or more areas on a pie chart influences ratio calculations, bar-charts,scatterplots and other pie charts.">
+                  <div class="card" data-step="7" data-intro="Choosing an area or areas - Won,Lost or Drew will affect the following: <p>1.Ratio and Percentage calculations</p><p>2.Other piecharts</p><p>3.Barcharts</p><p>4.Scatterplot/distribution charts</p>">
                     <div class="card-header">
                          Won,Lost and Drawn
                     </div>
@@ -109,7 +109,7 @@
             </div>
             
             <div class="col-sm-6 col-lg-4 ">
-                 <div class="card" data-step="8" data-intro=" This piechart can be adjusted by two things: (1) Selecting a team. A team can be selected using the selection box or by selecting one ore more teams on a barchart. (2) Selecting `Won`,`Lost` or `Drew` on Won-Lost-Drawn piechart.  *(1) and (2) can be used in unison. Selecting `home` or `Away` influences ratio calculations, bar-charts,scatterplots and other pie charts.">
+                 <div class="card" data-step="8" data-intro=" This piechart can be adjusted by two things: <p>(1) Selecting a team. A team can be selected using the selection box or by selecting one ore more teams on a barchart.</p><p>(2) Selecting `Won`,`Lost` or `Drew` on Won-Lost-Drawn piechart.</P> Note: (1) and (2) can filter in <strong>unison</strong>.<p> Selecting `Home` or `Away` influences ratio calculations, bar-charts,scatterplots and other pie charts.</p>">
                     <div class="card-header">
                          Scored Home and Away
                     </div>
@@ -119,7 +119,7 @@
                 </div>
             </div>
             <div class="col-sm-6 col-lg-4 ">
-                <div class="card" data-step="9" data-intro=" This piechart can be adjusted by two things: (1) Selecting a team. A team can be selected using the selection box or by selecting one ore more teams on a barchart. (2) Selecting `Won`,`Lost` or `Drew` on Won-Lost-Drawn piechart.  *(1) and (2) can be used in unison. Selecting `home` or `Away` influences ratio calculations, bar-charts,scatterplots and other pie charts.">
+                <div class="card" data-step="9" data-intro="If you click on the <strong>Home</strong> area of this piechart you will notice the `Home` attribute is shown as blue in all the barcharts ">
                     <div class="card-header">
                          Conceded Home and Away
                     </div>
@@ -130,7 +130,7 @@
             </div>
             
             <div class="col-sm-6 col-lg-4 ">
-                 <div class="card" data-step="10" data-intro="On a Barchart you can select one or more teams, the statistics for the selected team(s) will be shown on  ratio calculations,scatterplots and pie charts.">
+                 <div class="card" data-step="10" data-intro="<p>If you want statistics for multiple teams, you should select all teams on the <strong>same</strong> barchart.</p><p>Barcharts function <strong>alone</strong>, they do not collaborate to apply filters.</p><p>If you have made selections across multiple barcharts, the best thing to do is click the reset link on the navigation bar and start again.</p> ">
                     <div class="card-header">
                         Points Home and Away
                     </div>
@@ -140,7 +140,7 @@
                 </div>
             </div>
             <div class="col-sm-6 col-lg-4 ">
-                 <div class="card" data-step="11" data-intro="Selecting one or more teams on a Barchart overrides a previous team selection on the selection box at the top of the page.">
+                 <div class="card" data-step="11" data-intro="<p>Selecting one or more teams on a Barchart <strong>overrides</strong> a previous team selection on other barcharts or the selection box .</p>">
                     <div class="card-header">
                      Scored Home and Away
                     </div>
@@ -150,7 +150,7 @@
                 </div>
             </div>
             <div class="col-sm-6 col-lg-4 ">
-                   <div class="card" data-step="12" data-intro="Selecting a team using the selection box at the top of the page will override a previous selection of one or more teams on a Barchart.">
+                   <div class="card" data-step="12" data-intro="<p>Selecting one or more teams on a barchart will determine: </p>(1)The calculation of ratios and percentages.<p>(2)The size and statistics of areas shown on all piecharts</p><p>(3)The dots shown on both scatterplots </p>">
                         <div class="card-header">
                              Conceded Home and Away
                         </div>
@@ -164,7 +164,7 @@
 
         <div class="row">
             <div class=" col-12 col-lg-10 offset-lg-1 offset-xl-0 col-xl-12">
-                <div data-step="13" data-intro="Scatterplots can be adjusted by two things: (1) Selecting a team. A team can be selected using the selection box or by selecting one ore more teams on a barchart. (2) Selecting an area(s) on one or more Piecharts.  *(1) and (2) can be used in unison. ">
+                <div data-step="13" data-intro="<p>Scatterplots can be adjusted by two things:</p><p>(1) Selecting a team. A team can be selected using the selection box or by selecting one ore more teams on a barchart.</p><p>(2) Selecting an area on one or more Piecharts.</p><p>On this scatterplot you can hover over dots with your mouse -you will see how many goals were scored and conceded in a particular game</p>">
                     <div class="card-header">
                         Distribution Of Goals Scored 
                     </div>
@@ -174,7 +174,7 @@
                 </div>
             </div>
             <div class="col-12 col-lg-10 offset-lg-1 offset-xl-0 col-xl-12">
-                <div class= data-step="14" data-intro=" This scatterplot allows you to see how often a team(s) conceded a certain number of goals. Visualisation is easiest when only one team is selected via Barchart or the selection box at the top of the page">
+                <div class= data-step="14" data-intro="<p>On this scatterplot there is a brush feature.To use this feature click,hold and drag the mouse pointer out over an area</p><p>Statistics, piecharts, barcharts will now be based on the games within the selected area</p><p>Click outside the selected area on the chart to undo the selection</p>">
                     <div class="card-header">
                         Distribution Of Goals Conceded
                     </div>
