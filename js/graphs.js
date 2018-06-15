@@ -1,22 +1,26 @@
  queue().defer(d3.json, "data/stats.json").await(makeGraphs);
 function makeGraphs(error, stats){
-    
-//result {"date": "12/08/2017", "team": "liverpool", "opponent":"watford"" "home":"false", "scored" : "3" ,"conceded": "3", "points":"0"},
-    
-    var ndx = crossfilter(stats);
-
-   var team_dim = ndx.dimension(dc.pluck('team'));
+   var ndx = crossfilter(stats);
+   //parse data
+    var parseDate = d3.time.format("%d/%m/%Y").parse;
+    stats.forEach( function(d){
+       d.date = parseDate( d.date);
+       d.scored=parseInt(d.scored);
+       d.conceded=parseInt(d.conceded);
+       d.points=parseInt(d.points);
+    });
+   var team_dim = ndx.dimension(dc.pluck("team"));
    var team_group = team_dim.group();
+   var total_points = team_dim.group().reduceSum(dc.pluck("points"));
+   var goals_scored = team_dim.group().reduceSum(dc.pluck("scored"));
+   var goals_conceded = team_dim.group().reduceSum(dc.pluck("conceded"));
    
    dc.selectMenu("#team_selector")
    .dimension(team_dim)
    .group(team_group);
    
    //******************** %s ratios**************************
-   
-   //var points_dim = ndx.dimension(dc.pluck('points'));
     var percent_ratio_group = ndx.groupAll().reduce( 
-     
      //adder
      function(p,v){
        p.count++;
@@ -39,21 +43,18 @@ function makeGraphs(error, stats){
            p.total_conceded -= v.conceded;
           }
       return p;
-      
      },
      //init
      function(){
       return{ count: 0, total_points: 0, total_scored: 0, total_conceded: 0 };
      }
-     );
-     
+     );//end custom reduce
      dc.numberDisplay("#points_to_total_points_percentage")
      .group(percent_ratio_group)
      .formatNumber(d3.format(".2%"))
      .valueAccessor( function(d){
-      if(d.count==0){ return 0}
-      else{  return d.total_points / (d.count * 3)}
-     
+      if(d.count==0){ return 0;}
+      else{  return d.total_points / (d.count * 3);}
      });
 
      dc.numberDisplay("#scored_per_game_Ratio")
@@ -62,123 +63,52 @@ function makeGraphs(error, stats){
      .valueAccessor( function(d){
       if(d.count==0){ return 0}
       else{  return (d.total_scored / d.count).toFixed(2)}
-     
      });
      
-       dc.numberDisplay("#conceded_per_game_Ratio")
+     dc.numberDisplay("#conceded_per_game_Ratio")
      .group(percent_ratio_group)
      .formatNumber(d3.format(".2"))
      .valueAccessor( function(d){
       if(d.count==0){ return 0}
       else{  return (d.total_conceded / d.count).toFixed(2)}
-     
      });
-     //***************end ratios,percent**********
-     
-   
-   
-   
-    var total_points = team_dim.group().reduceSum(dc.pluck('points'));
-    var goals_scored = team_dim.group().reduceSum(dc.pluck('scored'));
-   var goals_conceded = team_dim.group().reduceSum(dc.pluck('conceded'));
-    
-    
-    
     //*************** piecharts******************
-    
-    
     var wonLostDrew_dimension = ndx.dimension( function(d){ //derived
-     
-     if( d.points==3) //d.scored > d.conceded
-     {
-      return "Won";
-     }
-     else if( d.points==0)
-     {
-       return "Lost";
-     }
-     else{
-      return "Drew";
-     }
-     
+     if(d.points==3){ return "Won";} //d.scored > d.conceded
+     else if(d.points==0){ return "Lost"; }
+     else{ return "Drew";}
     });
     var wonLostDrew_group = wonLostDrew_dimension.group();
-    //console.log(wonLostDrew_group.all());
     dc.pieChart("#won_lost_drew" )
     .height(140).radius(60)
     .dimension(wonLostDrew_dimension)
     .group(wonLostDrew_group);
     
-    
-    var scoredHomeAway_dimension = ndx.dimension( function(d){
-     //"home": "false"
-     if( d.home=="true") //d.scored > d.conceded
-     {
-      return "Home";
-     }
-     else{
-      return "Away";
-     }
-     
+    var HomeAway_dimension = ndx.dimension( function(d){//"home": "false"
+     if( d.home=="true") { return "Home";}
+     else{ return "Away";}
     });
-    var scoredHomeAway_group = scoredHomeAway_dimension.group().reduceSum(dc.pluck('scored'));
-    
+    var scoredHomeAway_group = HomeAway_dimension.group().reduceSum(dc.pluck("scored"));
     dc.pieChart("#scoredHomeAway_piechart" )
     .height(140).radius(60)
-    .dimension(scoredHomeAway_dimension)
+    .dimension(HomeAway_dimension)
     .group(scoredHomeAway_group);
     
-     var concededHomeAway_dimension = ndx.dimension( function(d){
-     //"home": "false"
-     if( d.home=="true") //d.scored > d.conceded
-     {
-      return "Home";
-     }
-     else{
-      return "Away";
-     }
-     
-    });
-    var concededHomeAway_group = scoredHomeAway_dimension.group().reduceSum(dc.pluck('conceded'));
-    
+    var concededHomeAway_group = HomeAway_dimension.group().reduceSum(dc.pluck("conceded"));
     dc.pieChart("#concededHomeAway_piechart" )
     .height(140).radius(60)
-    .dimension(concededHomeAway_dimension)
+    .dimension(HomeAway_dimension)
     .group(concededHomeAway_group );
     
-    
-    //line graph
-    var parseDate = d3.time.format("%d/%m/%Y").parse;
-    stats.forEach( function(d){
-       d.date = parseDate( d.date);
-       d.scored=parseInt(d.scored);
-       d.conceded=parseInt(d.conceded);
-       d.points=parseInt(d.points);
-    });
-    var date_dim = ndx.dimension(dc.pluck('date'));
-    
-    var minDate = date_dim.bottom(1)[0].date;
-    var maxDate = date_dim.top(1)[0].date;
-    
-    //stacked charts
-    
+    //***************stacked charts**************
     // points home and away
-    
     var group_pointsByTeamAtHome = team_dim.group().reduceSum(function(d){
-      if(d.home=="true"){
-       return +d.points;
-      }
-      else{
-        return 0;
-      }
+      if(d.home=="true"){ return +d.points; }
+      else{ return 0;}
     });
     var group_pointsByTeamAway = team_dim.group().reduceSum(function(d){
-      if(d.home=="false"){
-       return +d.points;
-      }
-      else{
-        return 0;
-      }
+      if(d.home=="false"){ return +d.points;}
+      else{ return 0;}
     });
     var stackedPointsChart = dc.barChart("#points_stackedChart");
     stackedPointsChart
@@ -191,23 +121,14 @@ function makeGraphs(error, stats){
     .legend( dc.legend().x(420).y(0).itemHeight(15).gap(5))
     .margins( {top: 10, right: 50, bottom: 30 , left: 50});
     
-    
     // scored home and away
     var group_scoredByTeamAtHome = team_dim.group().reduceSum(function(d){
-      if(d.home=="true"){
-       return +d.scored;
-      }
-      else{
-        return 0;
-      }
+      if(d.home=="true"){ return +d.scored; }
+      else{ return 0;}
     });
     var group_scoredByTeamAway = team_dim.group().reduceSum(function(d){
-      if(d.home=="false"){
-       return +d.scored;
-      }
-      else{
-        return 0;
-      }
+      if(d.home=="false"){return +d.scored; }
+      else{return 0;}
     });
     var stackedScoredChart = dc.barChart("#scored_stackedChart");
     stackedScoredChart
@@ -220,22 +141,14 @@ function makeGraphs(error, stats){
     .legend( dc.legend().x(420).y(0).itemHeight(15).gap(5))
     .margins( {top: 10, right: 50, bottom: 30 , left: 50});
     
-     // conceded home and away
+    // conceded home and away
     var group_concededByTeamAtHome = team_dim.group().reduceSum(function(d){
-      if(d.home=="true"){
-       return +d.conceded;
-      }
-      else{
-        return 0;
-      }
+      if(d.home=="true"){return +d.conceded; }
+      else{ return 0; }
     });
     var group_concededByTeamAway = team_dim.group().reduceSum(function(d){
-      if(d.home=="false"){
-       return +d.conceded;
-      }
-      else{
-        return 0;
-      }
+      if(d.home=="false"){return +d.conceded; }
+      else{ return 0;}
     });
     var concededScoredChart = dc.barChart("#conceded_stackedChart");
     concededScoredChart
@@ -248,29 +161,22 @@ function makeGraphs(error, stats){
     .legend( dc.legend().x(420).y(0).itemHeight(15).gap(5))
     .margins( {top: 10, right: 50, bottom: 30 , left: 50});
     
-    // scored_scatterplot
-   
+    //***************scatterplots****************
+   //date info
+    var date_dim = ndx.dimension(dc.pluck("date"));
+    var minDate = date_dim.bottom(1)[0].date;
+    var maxDate = date_dim.top(1)[0].date;
     
-    //date_dim,minDate //
+    //distribution of goals scored. x axis date, y axis goals scored
     var goals_dim = ndx.dimension( function(d) {
        return [d.date, d.scored, d.team, d.opponent, d.conceded]; //map to co ordinates
     });
     var goals_group = goals_dim.group();
-    var minDate2 = d3.time.day.offset(minDate, -5);
+    var minDate2 = d3.time.day.offset(minDate, -5); //offsets to make more visually appealing
     var maxDate2 =d3.time.day.offset(maxDate, 5);
-    
     var teamColors = d3.scale.ordinal().domain(["man city","man utd","spurs","liverpool"])
     .range(["blue","red","black","orange"]); // 1 to 1 mapping
-        
-    
-    //console.log(goals_group.all());
-    //var minDate = date_dim.bottom(1)[0].date;
-    /*  var date_dim = ndx.dimension(dc.pluck('date'));
-    var scored_dim = ndx.dimension(dc.pluck('scored'));
-    var minDate = date_dim.bottom(1)[0].date;
-    
-    */
-    var scored_dim = ndx.dimension(dc.pluck('scored'));
+    var scored_dim = ndx.dimension(dc.pluck("scored"));
     var maxScored = scored_dim.top(1)[0].scored;
     
     var goals_scatterplot = dc.scatterPlot("#scored_scatterplot")
@@ -293,24 +199,18 @@ function makeGraphs(error, stats){
     .group(goals_group);
     
      // conceded_scatterplot
-    var conceded_dim1 = ndx.dimension(dc.pluck('conceded'));
+    var conceded_dim1 = ndx.dimension(dc.pluck("conceded"));
     var maxConceded = conceded_dim1.top(1)[0].conceded;
     maxConceded  =parseInt(maxConceded);
-    
-    //date_dim,minDate //.brushOn(false)
     var conceded_dim = ndx.dimension( function(d) {
        return [d.date, d.conceded, d.team, d.opponent, d.scored]; //map to co ordinates
     });
     var conceded_group = conceded_dim.group();
-    var minDate2 = d3.time.day.offset(minDate, -5);
+    var minDate2 = d3.time.day.offset(minDate, -5);//offsets to make more visually appealing
     var maxDate2 =d3.time.day.offset(maxDate, 5);
-    
     var teamColors = d3.scale.ordinal().domain(["man city","man utd","spurs","liverpool"])
     .range(["blue","red","black","orange"]); // 1 to 1 mapping
         
-    
-    //console.log(goals_group.all());  /width 768
-    
     var conceded_scatterplot = dc.scatterPlot("#conceded_scatterplot")
     conceded_scatterplot
     .width(710) .height(240)
@@ -326,16 +226,9 @@ function makeGraphs(error, stats){
      return d.key[2];
     })
     .colors(teamColors)
-    .brushOn(false)
+    .brushOn(true)
     .dimension(conceded_dim)
     .group(conceded_group);
     
-    
     dc.renderAll(); 
-    
-    
-    
 }   
-    
-
-    
