@@ -9,7 +9,7 @@ div.card-header{
      overflow: scroll;
 }
 #team_selector{
-    display: inline;
+    display: inline-block;
 }
 .dc-chart .number-display{
     font-size: 2rem;
